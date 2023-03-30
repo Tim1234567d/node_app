@@ -17,6 +17,11 @@ pipeline {
             sh "gcloud auth login --cred-file=/home/temirlan/imposing-kayak-382008-ff36b33690ea.json"
         }
     }
+    stage("setting project"){
+        steps{
+            sh "gcloud config set project imposing-kayak-382008"
+        }
+    }
     stage("Configure docker") {
         steps {
             sh "gcloud auth configure-docker"
