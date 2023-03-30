@@ -7,14 +7,14 @@ pipeline {
         sh "pwd"
       }
     }
+    stage("gcloud auth login") {
+        steps{
+            sh "gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://eu.gcr.io"
+        }
+    }
     stage("Configure authentication") {
         steps {
             sh "gcloud auth activate-service-account baisalov-t98-gmail-com@imposing-kayak-382008.iam.gserviceaccount.com --key-file=/home/temirlan/imposing-kayak-382008-ff36b33690ea.json"
-        }
-    }
-    stage("gcloud login") {
-        steps{
-            sh "gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://eu.gcr.io"
         }
     }
     stage("set project"){
