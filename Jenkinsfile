@@ -13,11 +13,11 @@ pipeline {
             sh "gcloud auth activate-service-account baisalov-t98-gmail-com@imposing-kayak-382008.iam.gserviceaccount.com --key-file=/home/temirlan/imposing-kayak-382008-ff36b33690ea.json"
         }
     }
-    //  stage("gcloud auth login") {
-    //     steps{
-    //         sh "gcloud auth login"
-    //     }
-    // }
+     stage("gcloud auth login") {
+        steps{
+            sh "docker login -u _json_key --password-stdin https://eu.gcr.io < /home/temirlan/imposing-kayak-382008-ff36b33690ea.json"
+        }
+    }
     stage("set project"){
         steps{
             sh "gcloud config set project imposing-kayak-382008"
