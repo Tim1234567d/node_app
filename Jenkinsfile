@@ -14,7 +14,7 @@ pipeline {
     }
     stage("gcloud login") {
         steps{
-            sh "gcloud config set account `baisalov.t98@gmail.com`"
+            sh "gcloud auth login -u baisalov.t98@gmail.com"
         }
     }
     stage("Configure docker") {
