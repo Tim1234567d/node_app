@@ -3,24 +3,24 @@ pipeline {
   stages {
     stage('Build docker image') {
       steps {
-        sh 'docker build -t eu.gcr.io/imposing-kayak-382008/node_app .'
+        sh 'docker build -t eu.gcr.io/beaming-ion-382215/node_app .'
         sh "pwd"
         sh "whoami"
       }
     }
     stage("Configure authentication") {
         steps {
-            sh "gcloud auth activate-service-account example@imposing-kayak-382008.iam.gserviceaccount.com --key-file=/home/temirlan/imposing-kayak-382008-ff36b33690ea.json"
+            sh "gcloud auth activate-service-account demo-572@beaming-ion-382215.iam.gserviceaccount.com --key-file=/home/temirlan/beaming-ion-382215-527e481998d1.json"
         }
     }
      stage("gcloud auth login") {
         steps{
-            sh "docker login -u _json_key --password-stdin https://eu.gcr.io < /home/temirlan/imposing-kayak-382008-ff36b33690ea.json"
+            sh "docker login -u _json_key --password-stdin https://eu.gcr.io < /home/temirlan/beaming-ion-382215-527e481998d1.json"
         }
     }
     stage("set project"){
         steps{
-            sh "gcloud config set project imposing-kayak-382008"
+            sh "gcloud config set project beaming-ion-382215"
         }
     }
     // stage("Configure docker") {
@@ -30,7 +30,7 @@ pipeline {
     // }
     stage('Push to gcr') {
       steps {
-        sh 'docker push eu.gcr.io/imposing-kayak-382008/node_app'
+        sh 'docker push eu.gcr.io/beaming-ion-382215/node_app'
       }
     }
   }
