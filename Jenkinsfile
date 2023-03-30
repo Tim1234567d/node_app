@@ -30,7 +30,7 @@ pipeline {
     }
     stage('Push to gcr') {
       steps {
-        sh 'sudo docker push eu.gcr.io/imposing-kayak-382008/node_app'
+        sh 'docker push eu.gcr.io/imposing-kayak-382008/node_app'
       }
     }
   }
