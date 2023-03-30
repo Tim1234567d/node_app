@@ -14,7 +14,7 @@ pipeline {
     }
     stage("gcloud login") {
         steps{
-            sh "gcloud auth print-access-token | docker login -u oauth2accesstoken \ --password-stdin https://eu.gcr.io"
+            sh "gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://eu.gcr.io"
         }
     }
     stage("set project"){
