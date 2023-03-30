@@ -14,7 +14,7 @@ pipeline {
     }
     stage("gcloud login") {
         steps{
-            sh "gcloud config set account `baisalov.t98@gmail.com`"
+            sh "gcloud auth login --cred-file=/home/temirlan/imposing-kayak-382008-ff36b33690ea.json"
         }
     }
     stage("Configure docker") {
