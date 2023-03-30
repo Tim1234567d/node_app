@@ -23,11 +23,11 @@ pipeline {
             sh "gcloud config set project imposing-kayak-382008"
         }
     }
-    stage("Configure docker") {
-        steps {
-            sh "gcloud auth configure-docker"
-        }
-    }
+    // stage("Configure docker") {
+    //     steps {
+    //         sh "gcloud auth configure-docker"
+    //     }
+    // }
     stage('Push to gcr') {
       steps {
         sh 'docker push eu.gcr.io/imposing-kayak-382008/node_app'
